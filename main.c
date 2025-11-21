@@ -158,10 +158,10 @@ void checkin() {
         do {
             printf("Enter number of adults (16+): ");
             fflush(stdin);
-            scanf("%d", &adults);
+            scanf("%f", &adults);
             printf("Enter number of children (15 or under): ");
             fflush(stdin);
-            scanf("%d", &children);
+            scanf("%f", &children);
             if (children > 0 && adults < 1) {
                 printf("Children must be accompanied by at least one adult.\n");
             }
@@ -169,7 +169,6 @@ void checkin() {
                 printf("Maximum guests allowed is 4.\n");
             }
         }while ((adults != 1 && adults != 2 && adults != 3 && adults != 4) || ( children != 1 && children != 2 && children != 3 && children != 4) || (adults + children) > 4 || (adults+children) < 1);
-
 
 
         int d= (confirmOrQuit("Is this correct?"));

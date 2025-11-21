@@ -168,7 +168,10 @@ void checkin() {
             if ((adults + children) > 4) {
                 printf("Maximum guests allowed is 4.\n");
             }
-        }while ((adults != 1 && adults != 2 && adults != 3 && adults != 4) && ( children != 1 && children != 2 && children != 3 && children != 4) && ((adults + children) > 4) && (children > 0 && adults < 1));
+            if ((adults != 0 && adults != 1 && adults != 2 && adults != 3 && adults != 4) || (children != 0 && children != 1 && children != 2 && children != 3 && children != 4)) {
+                printf("Invalid format.\n");
+            }
+        }while (((adults != 0 && adults != 1 && adults != 2 && adults != 3 && adults != 4) && (children != 0 && children != 1 && children != 2 && children != 3 && children != 4)) || ((adults + children) > 4) || ((adults+children) < 1)||(children > 0 && adults < 1));
 
 
         int d= (confirmOrQuit("Is this correct?"));

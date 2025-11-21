@@ -22,8 +22,8 @@ int guestCount = 0;
 
 char firstName[50];
 char surName[50];
-int adults;
-int children;
+float adults;
+float children;
 int stayLength;
 int roomChoice;
 char boardType[3];

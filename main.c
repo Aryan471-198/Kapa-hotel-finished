@@ -156,10 +156,10 @@ void checkin() {
 
     while (true) {
         do {
-            printf("Enter number of adults (16+): ");
+            printf("Enter number of adults (17+): ");
             fflush(stdin);
             scanf("%f", &adults);
-            printf("Enter number of children (15 or under): ");
+            printf("Enter number of children (16 or under): ");
             fflush(stdin);
             scanf("%f", &children);
             if (children > 0 && adults < 1) {

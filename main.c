@@ -217,7 +217,7 @@ void checkin() {
             printf("\nAvailable rooms:\n");
             for (int i = 0; i < 6; i++)
                 printf("Room %d - GBP%d - %s\n", i + 1, roomPrices[i], roomsAvailable[i] ? "Available" : "Occupied");
-          float k;
+          float k=0;
             do {
                 printf("Choose room number: ");
                 fflush(stdin);
@@ -245,14 +245,18 @@ void checkin() {
     }
 
     while (true) {
+        char c='g';
+        do {
+            printf("Do you want a newspaper? (Y/N): ");
 
-    printf("Do you want a newspaper? (Y/N): ");
-    char c;
-fflush(stdin);
-    scanf(" %c", &c);
+            scanf(" %c",&c );
+            c = toupper(c);
+            if (c != 'Y' && c != 'N') {
+                printf("Invalid input. Please enter Y or N.\n");
+            }
 
-    newspaper = (toupper(c) == 'Y');
-
+        } while (c != 'Y' && c != 'N');
+        newspaper =c;
         int d= (confirmOrQuit("Is this correct?"));
         if (d == 1) break;
         if (d == 0) continue;
@@ -269,8 +273,8 @@ fflush(stdin);
 
     printf("\nBooking Summary:\n");
     printf("Guest: %s %s\n", firstName, surName);
-    printf("Adults: %f, Children: %f\n", adults, children);
-    printf("Stay: %f days\n", stayLength);
+    printf("Adults: %1.0f, Children: %1.0f\n", adults, children);
+    printf("Stay: %1.0f days\n", stayLength);
     printf("Board type: %s (GDP%d per person per day)\n", boardType, getBoardPrice(boardType));
     printf("Room: %d (GDP%d)\n", roomChoice, roomPrices[roomChoice - 1]);
     printf("Newspaper: %d\n", newspaper );

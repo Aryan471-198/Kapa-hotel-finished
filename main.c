@@ -245,14 +245,14 @@ void checkin() {
     }
 
     while (true) {
-do {
+
     printf("Do you want a newspaper? (Y/N): ");
     char c;
 fflush(stdin);
     scanf(" %c", &c);
 
     newspaper = (toupper(c) == 'Y');
-} while (newspaper != 'Y' || newspaper != 'N');
+
         int d= (confirmOrQuit("Is this correct?"));
         if (d == 1) break;
         if (d == 0) continue;
@@ -269,8 +269,8 @@ fflush(stdin);
 
     printf("\nBooking Summary:\n");
     printf("Guest: %s %s\n", firstName, surName);
-    printf("Adults: %d, Children: %d\n", adults, children);
-    printf("Stay: %d days\n", stayLength);
+    printf("Adults: %f, Children: %f\n", adults, children);
+    printf("Stay: %f days\n", stayLength);
     printf("Board type: %s (GDP%d per person per day)\n", boardType, getBoardPrice(boardType));
     printf("Room: %d (GDP%d)\n", roomChoice, roomPrices[roomChoice - 1]);
     printf("Newspaper: %d\n", newspaper );

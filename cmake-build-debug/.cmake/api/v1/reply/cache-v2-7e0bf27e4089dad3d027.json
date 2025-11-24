@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/aryan.neshat25/Downloads/Kapa-hotel-finished/cmake-build-debug"
+			"value" : "c:/Users/prasanya.ramprasad25/Downloads/Kapa-hotel-finished/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -491,7 +491,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/aryan.neshat25/Downloads/Kapa-hotel-finished/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/prasanya.ramprasad25/Downloads/Kapa-hotel-finished/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -563,7 +563,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/aryan.neshat25/Downloads/Kapa-hotel-finished"
+			"value" : "C:/Users/prasanya.ramprasad25/Downloads/Kapa-hotel-finished"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1199,7 +1199,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/aryan.neshat25/Downloads/Kapa-hotel-finished/cmake-build-debug"
+			"value" : "C:/Users/prasanya.ramprasad25/Downloads/Kapa-hotel-finished/cmake-build-debug"
 		},
 		{
 			"name" : "Kapa_hotel_finished_IS_TOP_LEVEL",
@@ -1223,7 +1223,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/aryan.neshat25/Downloads/Kapa-hotel-finished"
+			"value" : "C:/Users/prasanya.ramprasad25/Downloads/Kapa-hotel-finished"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",

@@ -1,5 +1,5 @@
 CMakeFiles/Kapa_hotel_finished.dir/main.c.obj: \
- C:\Users\aryan.neshat25\Downloads\Kapa-hotel-finished\main.c \
+ C:\Users\prasanya.ramprasad25\Downloads\Kapa-hotel-finished\main.c \
  C:/Program\ Files\ (x86)/JetBrains/CLion\ 2024.1.4/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
  C:/Program\ Files\ (x86)/JetBrains/CLion\ 2024.1.4/bin/mingw/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
  C:/Program\ Files\ (x86)/JetBrains/CLion\ 2024.1.4/bin/mingw/x86_64-w64-mingw32/include/corecrt.h \

@@ -185,7 +185,7 @@ void checkin() {
         do{
             printf("Enter number of days to stay (max 15): ");
             fflush(stdin);
-            scanf("%d", &stayLength);
+            scanf("%f", &stayLength);
             if (stayLength < 1 || stayLength > 15) {
                printf("Invalid stay length.\n");
             }
@@ -230,9 +230,6 @@ void checkin() {
                  roomChoice != 6 && (roomsAvailable[roomChoice - 1] != false));
 
 
-       /*
-            continue;
-        }*/
 
         int d= (confirmOrQuit("Is this correct?"));
         if (d == 1) break;

@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/aryan.neshat25/Downloads/Kapa-hotel-finished/main.c" "CMakeFiles/Kapa_hotel_finished.dir/main.c.obj" "gcc" "CMakeFiles/Kapa_hotel_finished.dir/main.c.obj.d"
+  "C:/Users/prasanya.ramprasad25/Downloads/Kapa-hotel-finished/main.c" "CMakeFiles/Kapa_hotel_finished.dir/main.c.obj" "gcc" "CMakeFiles/Kapa_hotel_finished.dir/main.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

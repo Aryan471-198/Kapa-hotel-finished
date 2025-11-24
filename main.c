@@ -24,7 +24,7 @@ char firstName[50];
 char surName[50];
 float adults;
 float children;
-int stayLength;
+float stayLength;
 int roomChoice;
 char boardType[3];
 char bookingID[80];
@@ -168,6 +168,9 @@ void checkin() {
             if ((adults + children) > 4) {
                 printf("Maximum guests allowed is 4.\n");
             }
+            if ((adults + children) > 4) {
+                printf("Maximum guests allowed is 4.\n");
+            }
         }while ((adults != 1 && adults != 2 && adults != 3 && adults != 4) || ( children != 1 && children != 2 && children != 3 && children != 4) || (adults + children) > 4 || (adults+children) < 1);
 
 
@@ -218,11 +221,13 @@ void checkin() {
             printf("Choose room number: ");
             fflush(stdin);
             scanf("%d", &roomChoice);
-            if (roomChoice != 1 && roomChoice != 2 && roomChoice != 3 && roomChoice != 4 && roomChoice != 5 && roomChoice != 6 && !roomsAvailable [roomChoice-1]) {
+
+            if (roomChoice != 1 && roomChoice != 2 && roomChoice != 3 && roomChoice != 4 && roomChoice != 5 && roomChoice != 6 && (roomsAvailable [roomChoice-1]!=false)) {
                 printf("Room unavailable or invalid.\n");
             }
 
-        }while(roomChoice != 1 && roomChoice != 2 && roomChoice != 3 && roomChoice != 4 && roomChoice != 5 && roomChoice != 6 && !roomsAvailable [roomChoice-1]);
+        } while (roomChoice != 1 && roomChoice != 2 && roomChoice != 3 && roomChoice != 4 && roomChoice != 5 &&
+                 roomChoice != 6 && (roomsAvailable[roomChoice - 1] != false));
 
 
        /*

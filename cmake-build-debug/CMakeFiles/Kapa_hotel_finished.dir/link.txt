@@ -1,0 +1,3 @@
+"C:\Program Files (x86)\JetBrains\CLion 2024.1.4\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\Kapa_hotel_finished.dir/objects.a
+C:\PROGRA~2\JETBRA~1\CLION2~1.4\bin\mingw\bin\ar.exe qc CMakeFiles\Kapa_hotel_finished.dir/objects.a @CMakeFiles\Kapa_hotel_finished.dir\objects1.rsp
+C:\PROGRA~2\JETBRA~1\CLION2~1.4\bin\mingw\bin\gcc.exe -g -Wl,--whole-archive CMakeFiles\Kapa_hotel_finished.dir/objects.a -Wl,--no-whole-archive -o Kapa_hotel_finished.exe -Wl,--out-implib,libKapa_hotel_finished.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Kapa_hotel_finished.dir\linkLibs.rsp

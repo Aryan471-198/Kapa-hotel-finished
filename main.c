@@ -222,6 +222,9 @@ void checkin() {
                 printf("Choose room number: ");
                 fflush(stdin);
                 scanf("%f", &k);
+                if (floor (k) != k) {
+                    printf("invalid format\n");
+                }
             }while (floor (k) != k);
             roomChoice=k;
 
@@ -242,11 +245,14 @@ void checkin() {
     }
 
     while (true) {
-        printf("Do you want a newspaper? (Y/N): ");
-        char c;
-        scanf(" %c", &c);
-        if (toupper(c) == 'Q') return;
-        newspaper = (toupper(c) == 'Y');
+do {
+    printf("Do you want a newspaper? (Y/N): ");
+    char c;
+fflush(stdin);
+    scanf(" %c", &c);
+
+    newspaper = (toupper(c) == 'Y');
+} while (newspaper != 'Y' || newspaper != 'N');
         int d= (confirmOrQuit("Is this correct?"));
         if (d == 1) break;
         if (d == 0) continue;

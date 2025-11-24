@@ -217,10 +217,14 @@ void checkin() {
             printf("\nAvailable rooms:\n");
             for (int i = 0; i < 6; i++)
                 printf("Room %d - GBP%d - %s\n", i + 1, roomPrices[i], roomsAvailable[i] ? "Available" : "Occupied");
+          float k;
+            do {
+                printf("Choose room number: ");
+                fflush(stdin);
+                scanf("%f", &k);
+            }while (floor (k) != k);
+            roomChoice=k;
 
-            printf("Choose room number: ");
-            fflush(stdin);
-            scanf("%d", &roomChoice);
 
             if (roomChoice != 1 && roomChoice != 2 && roomChoice != 3 && roomChoice != 4 && roomChoice != 5 && roomChoice != 6 && (roomsAvailable [roomChoice-1]!=false)) {
                 printf("Room unavailable or invalid.\n");

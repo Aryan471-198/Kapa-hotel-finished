@@ -163,7 +163,7 @@ void checkin() {
                 printf("Enter number of children (16 or under): ");
                 fflush(stdin);
                 scanf("%f", &children);
-                if (adults==0.0 || children ==0.0) {
+                if (adults==0.0 && children ==0.0) {
                     printf("invalidformat\n");
                 }
             }while (adults==0.0 || children ==0.0);

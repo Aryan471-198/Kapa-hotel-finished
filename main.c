@@ -235,12 +235,12 @@ void checkin() {
             roomChoice=k;
 
 
-            if (roomChoice != 1 && roomChoice != 2 && roomChoice != 3 && roomChoice != 4 && roomChoice != 5 && roomChoice != 6 && (roomsAvailable [roomChoice-1]!=false)) {
+            if (roomChoice != 1 && roomChoice != 2 && roomChoice != 3 && roomChoice != 4 && roomChoice != 5 && roomChoice != 6 || (roomsAvailable [roomChoice-1]==false)) {
                 printf("Room unavailable or invalid.\n");
             }
 
         } while (roomChoice != 1 && roomChoice != 2 && roomChoice != 3 && roomChoice != 4 && roomChoice != 5 &&
-                 roomChoice != 6 && (roomsAvailable[roomChoice - 1] != false));
+                 roomChoice != 6 || (roomsAvailable[roomChoice - 1] == false));
 
 
 

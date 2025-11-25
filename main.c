@@ -156,22 +156,28 @@ void checkin() {
 
     while (true) {
         do {
-            printf("Enter number of adults (17+): ");
-            fflush(stdin);
-            scanf("%f", &adults);
-            printf("Enter number of children (16 or under): ");
-            fflush(stdin);
-            scanf("%f", &children);
+            do {
+                printf("Enter number of adults (17+): ");
+                fflush(stdin);
+                scanf("%f", &adults);
+                printf("Enter number of children (16 or under): ");
+                fflush(stdin);
+                scanf("%f", &children);
+                if (adults==0.0 || children ==0.0) {
+                    printf("invalidformat\n");
+                }
+            }while (adults==0.0 || children ==0.0);
+
             if (children > 0 && adults < 1) {
                 printf("Children must be accompanied by at least one adult.\n");
             }
             if ((adults + children) > 4) {
                 printf("Maximum guests allowed is 4.\n");
             }
-            if ((adults != 1 && adults != 2 && adults != 3 && adults != 4) || ( children != 1 && children != 2 && children != 3 && children != 4) || (adults + children) > 4 || (adults+children) < 1) {
+            if ((adults != 0 && adults != 1 && adults != 2 && adults != 3 && adults != 4) || (children != 0 &&  children != 1 && children != 2 && children != 3 && children != 4)|| (adults + children) > 4 || (children > 0 && adults < 1)) {
                 printf("Invalid form.\n");
             }
-        }while ((adults != 1 && adults != 2 && adults != 3 && adults != 4) || ( children != 1 && children != 2 && children != 3 && children != 4) || (adults + children) > 4 || (adults+children) < 1);
+        }while ((adults != 0 && adults != 1 && adults != 2 && adults != 3 && adults != 4) || (children != 0 &&  children != 1 && children != 2 && children != 3 && children != 4) || (adults + children) > 4 || (children > 0 && adults < 1));
 
 
         int d= (confirmOrQuit("Is this correct?"));
@@ -304,13 +310,14 @@ void findAndPrintByID() {
     for (int i = 0; i < guestCount; i++) {
         if (strcmp(guestBookingIDs[i], searchID) == 0) {
 
-            printf("\n=== Guest Found ===\n");
-            printf("Booking ID: %s\n", guestBookingIDs[i]);
-            printf("Room: %d\n", guestRoomChoices[i]);
-            printf("Stay Length: %d days\n", guestStayLengths[i]);
-            printf("number of guests: %d \n", guestnumber[i]);
-            printf("Board Type: %s\n", guestBoardTypes[i]);
-            printf("Newspaper: %d\n", guestNewspapers[i]);
+            printf("\nBooking Summary:\n");
+            printf("Guest: %s %s\n", firstName, surName);
+            printf("Adults: %1.0f, Children: %1.0f\n", adults, children);
+            printf("Stay: %1.0f days\n", stayLength);
+            printf("Board type: %s (GDP%d per person per day)\n", boardType, getBoardPrice(boardType));
+            printf("Room: %d (GDP%d)\n", roomChoice, roomPrices[roomChoice - 1]);
+            printf("Newspaper: %d\n", newspaper );
+            printf("Booking ID: %s\n", bookingID);
             printf("====================\n");
             return;
         }
@@ -586,43 +593,51 @@ void removeInfo(int Random) {
 int main() {
 
         while (true) {
+            char temp[100];
             char choice;
-int k=0;
+            int k=0;
             printf("*********** Welcome to Kapa Hotel Main Menu ***********\n");
+
             printf("Do you want to Check In (C), Check Out (O), Dinner (D), Check info(I)? ");
-            scanf(" %c", &choice);
-            choice = toupper(choice);
-            if (choice == 'C') {
-                for (int i = 0; i < 6; i++) {
-                    if (roomsAvailable[i] == false) {
-                        k++;
+            scanf("%s", temp);
+            if (strlen(temp)==1){
+                choice = toupper(temp[0]);
+                if (choice == 'C') {
+                    for (int i = 0; i < 6; i++) {
+                        if (roomsAvailable[i] == false) {
+                            k++;
+                        }
                     }
+                    if (k==6) {
+                        printf("We are full sorry");
+                    }
+                    else {
+                        checkin();
+                        storeInfo();
+
+                    }
+
                 }
-                  if (k==6) {
-                      printf("We are full sorry");
-                  }
+
+                else if (choice == 'O') {
+                    checkout();
+                }
+                else if (choice == 'D') {
+                    dinnerSystem();   // <-- This is where the dinner program is now called
+                }
+                else if (choice == 'I') {
+                    findAndPrintByID();
+                }
+
                 else {
-                   checkin();
-                    storeInfo();
-
+                    printf("Invalid option.\n");
                 }
-
             }
-
-             else if (choice == 'O') {
-                checkout();
-            }
-            else if (choice == 'D') {
-                dinnerSystem();   // <-- This is where the dinner program is now called
-            }
-            else if (choice == 'I') {
-                findAndPrintByID();
-            }
-
             else {
                 printf("Invalid option.\n");
             }
         }
+
 
     return 0;
 }

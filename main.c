@@ -155,29 +155,48 @@ void checkin() {
 
 
     while (true) {
+        char temp[100];
+        char temp1[100];
         do {
-            do {
+            do{
                 printf("Enter number of adults (17+): ");
                 fflush(stdin);
-                scanf("%f", &adults);
-                printf("Enter number of children (16 or under): ");
-                fflush(stdin);
-                scanf("%f", &children);
-                if (adults==0.0 && children ==0.0) {
-                    printf("invalidformat\n");
-                }
-            }while (adults==0.0 || children ==0.0);
+                scanf("%s", &temp);
 
+                if (temp[0]<'0' || temp[0] >'4') {
+                    printf("invalid format\n");
+                }
+            }while ((temp[0]<'0' || temp[0] > '4')|| strlen(temp)>1);
+            if (temp[0]=='0'){adults =0;}
+            if (temp[0]=='1'){adults =1;}
+            if (temp[0]=='2'){adults =2;}
+            if (temp[0]=='3'){adults =3;}
+            if (temp[0]=='4'){adults =4;}
+            do{
+                printf("Enter number of children (16-): ");
+                fflush(stdin);
+                scanf("%s", &temp1);
+
+                if (temp1[0]<'0' || temp1[0] >'4') {
+                    printf("invalid format\n");
+                }
+            }while ((temp1[0]<'0' || temp1[0] > '4')|| strlen(temp1)>1);
+            if (temp1[0]=='0'){children =0;}
+            if (temp1[0]=='1'){children =1;}
+            if (temp1[0]=='2'){children =2;}
+            if (temp1[0]=='3'){children =3;}
+            if (temp1[0]=='4'){children =4;}
             if (children > 0 && adults < 1) {
                 printf("Children must be accompanied by at least one adult.\n");
             }
             if ((adults + children) > 4) {
                 printf("Maximum guests allowed is 4.\n");
             }
-            if ((adults != 0 && adults != 1 && adults != 2 && adults != 3 && adults != 4) || (children != 0 &&  children != 1 && children != 2 && children != 3 && children != 4)|| (adults + children) > 4 || (children > 0 && adults < 1)) {
-                printf("Invalid form.\n");
+            if ((adults + children) ==0) {
+                printf("Youre checking in 0 guestes? not possible.\n");
             }
-        }while ((adults != 0 && adults != 1 && adults != 2 && adults != 3 && adults != 4) || (children != 0 &&  children != 1 && children != 2 && children != 3 && children != 4) || (adults + children) > 4 || (children > 0 && adults < 1));
+
+        }while ( (adults + children) > 4 || (adults + children) ==0  || (children > 0 && adults < 1));
 
 
         int d= (confirmOrQuit("Is this correct?"));

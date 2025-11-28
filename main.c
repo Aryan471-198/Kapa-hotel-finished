@@ -126,25 +126,31 @@ void checkin() {
     }
 
     while (true) {
+        float yTest;
         printf("Enter main guest's DOB (DD/MM/YYYY): ");
-        if (scanf("%d/%d/%d", &day, &month, &year) != 3) {
+        if (scanf("%d/%d/%f", &day, &month, &yTest) != 3) {
             printf("Invalid format.\n");
             while (getchar() != '\n');
+            continue;
+        }
+        if (floor(yTest) != yTest) {
+            printf("Invalid format.\n");
             continue;
         }
         if (month < 1 || month > 12 || day < 1 || day > daysInMonth(month)) {
             printf("Invalid date.\n");
             continue;
         }
-        if (year>2007) {
+        if (yTest>2007) {
             printf("children can't sign up please bring an adult and enter their DOB.\n");
             continue;
 
         }
-        if (year<1925) {
+        if (yTest<1925) {
             printf("You can't be more than 100 years old, that is not possible.\n");
             continue;
         }
+        yTest = year;
         guestAge[guestCount] = 2025-year;
         int d= (confirmOrQuit("Is this correct?"));
         if (d == 1) break;

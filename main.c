@@ -19,7 +19,7 @@ int guestAge[10000];
 int guestNumberOfChildren[10000];
 char guestFirstName[10000][15];
 int guestCount = 0;
-
+// Global variables for checkin
 char firstName[50];
 char surName[50];
 float adults;
@@ -34,10 +34,7 @@ bool roomsAvailable[6] = {true, true, true, true, true, true};
 int roomPrices[6] = {100, 100, 85, 75, 75, 50};
 int boardPrices[3] = {20, 15, 5};
 
-/* --- nameCheck, daysInMonth, confirmOrQuit, getBoardPrice, etc. remain unchanged --- */
-//TODO Add check out function once complete
-
-
+//subrotine That checks name and surname of the user making sure its inb the right format
 int nameCheck(const char *s ) { //validation for name
     int k=0;
     if (strlen(s) >16 || strlen(s) <=2) {
@@ -56,7 +53,7 @@ int nameCheck(const char *s ) { //validation for name
     return 0;}
     else if (k==0){return 1;}
 }
-
+//subrotine That check the day entered for every month is correct
 int daysInMonth(int month) {
     switch (month) {
         case 1: case 3: case 5: case 7: case 8: case 10: case 12: return 31;
@@ -65,7 +62,7 @@ int daysInMonth(int month) {
         default: return 0;
     }
 }
-
+//subrotine the quistion after every input(asking the user if the entered data is right or wrong or do they want to quit entirly)
 int confirmOrQuit(const char* question) {
     char c;
     do {
@@ -79,7 +76,7 @@ int confirmOrQuit(const char* question) {
     if (c == 'Y') {return 1;}
     else { return 2;}
 }
-
+//subrotine for board price
 int getBoardPrice(const char* type) {
     if (strcmp(type, "FB") == 0) return boardPrices[0];
     if (strcmp(type, "HB") == 0) return boardPrices[1];
@@ -88,7 +85,7 @@ int getBoardPrice(const char* type) {
 }
 
 
-
+// main subrotine for checkin
 void checkin() {
     int day, month, year;
 
@@ -301,7 +298,7 @@ void checkin() {
     }
 
     roomsAvailable[roomChoice - 1] = false;
-    //generate user's bookingID by concatenating random number and surname
+    //generate user's bookingID by using random number and surname
     int r;
     srand(time(NULL));
     r = rand() % 100;
@@ -320,8 +317,8 @@ void checkin() {
     printf("\nGuest stay info has been stored under booking ID: %s\n", bookingID);
     printf("\n************* Check-in Complete ***********\n");
 }
-
-void storeInfo() { //write all of the check in data to the global vars
+// Subroutine stores all of the guestes after checkout
+void storeInfo() {
     guestStayLengths[guestCount] = stayLength;
     guestRoomChoices[guestCount] = roomChoice;
     strcpy(guestBoardTypes[guestCount], boardType);
@@ -332,7 +329,7 @@ void storeInfo() { //write all of the check in data to the global vars
 
 
 }
-
+// Subroutine find and prints the information for a gueset
 void findAndPrintByID() {
     char searchID[80];
     printf("\nEnter Booking ID to search: ");
@@ -359,7 +356,7 @@ void findAndPrintByID() {
 
 
 
-//table system to determine availability
+//global vraibles for reserving a table
 int endor7 = 0;
 int naboo7 = 0;
 int tatooine7 = 0;
@@ -428,7 +425,7 @@ void processTableChoice(int numOfGuests) {
             printf("Sorry, there are no available tables today.\n");
     }
 }
-
+// Subroutine booking dinner table happense in(main booking table subrotine)
 char bookTable(int numOfGuests) {
     if (numOfGuests <=4) {
 
@@ -483,7 +480,7 @@ char bookTable(int numOfGuests) {
         return 'X';
     }
 }
-///// check out part
+//checkout global variables
 float roomCost(int roomNum);
 float boardCost();
 float newspaperCost();
@@ -491,6 +488,7 @@ void finalBill( float roomTotal, float boardTotal, float newspaper);
 void resetRoom();
 int random;
 void removeInfo(int Random);
+// Subroutine checkout happense in (main checkout subrootine)
 void checkout() {
     char searchID[80];
     printf("\nEnter Booking ID to search: ");
@@ -600,13 +598,14 @@ void finalBill(float roomTotal, float boardTotal, float newspaper) {
 
 
 }
-
+// Subroutine that resets the room after checkout
 void resetRoom() {
     roomsAvailable[guestRoomChoices[random] - 1] = true;
 }
+// Subroutine that removes info frm the systema after checkout
 void removeInfo(int Random) {
     char deletedID[80];
-    strcpy(deletedID, guestBookingIDs[Random]);   // save before clearing
+    strcpy(deletedID, guestBookingIDs[Random]);
 
     guestStayLengths[Random] = 0;
     guestRoomChoices[Random] = 0;

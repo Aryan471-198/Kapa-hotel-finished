@@ -172,7 +172,7 @@ void checkin() {
                 if (temp[0]<'0' || temp[0] >'4') {
                     printf("invalid format\n");
                 }
-                if (adults > 4) {
+                if (temp[0] > 4) {
                     printf("Maximum guests allowed is 4.\n");
                 }
             }while ((temp[0]<'0' || temp[0] > '4')|| strlen(temp)>1);
@@ -189,7 +189,7 @@ void checkin() {
                 if (temp1[0]<'0' || temp1[0] >'4') {
                     printf("invalid format\n");
                 }
-                if ( children > 4) {
+                if ( temp1[0] > 4) {
                     printf("Maximum guests allowed is 4.\n");
                 }
             }while ((temp1[0]<'0' || temp1[0] > '4')|| strlen(temp1)>1);

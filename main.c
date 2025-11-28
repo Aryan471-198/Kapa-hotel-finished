@@ -279,18 +279,19 @@ void checkin() {
     }
 
     while (true) {
-        char c='g';
+        char c;
         do {
             printf("Do you want a newspaper? (Y/N): ");
-
-            scanf(" %c",&c );
+            fflush(stdin);
+            scanf("%c",&c );
             c = toupper(c);
             if (c != 'Y' && c != 'N') {
                 printf("Invalid input. Please enter Y or N.\n");
             }
-
         } while (c != 'Y' && c != 'N');
-        newspaper =c;
+        newspaper = c;
+
+
         int d= (confirmOrQuit("Is this correct?"));
         if (d == 1) break;
         if (d == 0) continue;
